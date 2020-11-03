@@ -18,23 +18,31 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         auth.addEventListener("mouseleave", () => {
-            document.querySelectorAll(".selected").forEach((selectedCircle, j) => {
-                selectedCircle.classList.add(code == "012" ? 'selected-ok' : "selected-fail")
-            });
-            if(code == "012"){
-            } else {
-            }
-            //Permet de réinitialiser la string, sinon "012" puis "012345"...
-            code = ""
-            setTimeout(() => {
+            
+            fetch("auth.php?code=" + code)
+            .then((response) => {
+                return response.json()
+            })
+            .then((data) => {
                 document.querySelectorAll(".selected").forEach((selectedCircle, j) => {
-                    selectedCircle.classList.remove("selected")
-                    selectedCircle.classList.remove("selected-ok")
-                    selectedCircle.classList.remove("selected-fail")
+                    selectedCircle.classList.add(data.ok     ? 'selected-ok' : "selected-fail")
                 });
-            }, 1000)
+
+                //Permet de réinitialiser la string, sinon "012" puis "012345"...
+                code = ""
+    
+                setTimeout(() => {
+                    document.querySelectorAll(".selected").forEach((selectedCircle, j) => {
+                        selectedCircle.classList.remove("selected")
+                        selectedCircle.classList.remove("selected-ok")
+                        selectedCircle.classList.remove("selected-fail")
+                    });
+                    if(data.ok){
+                        window.location = "admin"
+                    }
+                }, 1000)
+            })
         })
-        
     })
 })
 

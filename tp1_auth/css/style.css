@@ -68,6 +68,8 @@ body #bg #auth .circle {
   margin: 10px;
   border-radius: 50%;
   border: solid 1px lightgray;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 body #bg #auth .circle.selected {
