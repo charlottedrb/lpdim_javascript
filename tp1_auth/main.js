@@ -5,11 +5,35 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#bg").classList.remove("hidden")
 
         const circles = document.querySelectorAll(".circle")
+        const auth = document.querySelector("#auth")
+        let code = ""
+
         circles.forEach((circle, i) => {
             circle.addEventListener("mouseenter", () => {
-                console.log(i);
+                if(code.indexOf(i) == -1){
+                    code += i;
+                }
+                circle.classList.add("selected")
             })
         });
+
+        auth.addEventListener("mouseleave", () => {
+            document.querySelectorAll(".selected").forEach((selectedCircle, j) => {
+                selectedCircle.classList.add(code == "012" ? 'selected-ok' : "selected-fail")
+            });
+            if(code == "012"){
+            } else {
+            }
+            //Permet de réinitialiser la string, sinon "012" puis "012345"...
+            code = ""
+            setTimeout(() => {
+                document.querySelectorAll(".selected").forEach((selectedCircle, j) => {
+                    selectedCircle.classList.remove("selected")
+                    selectedCircle.classList.remove("selected-ok")
+                    selectedCircle.classList.remove("selected-fail")
+                });
+            }, 1000)
+        })
         
     })
 })

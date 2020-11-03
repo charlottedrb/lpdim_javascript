@@ -68,9 +68,20 @@ body{
                 margin: 10px; 
                 border-radius: 50%;
                 border: solid 1px lightgray;
+                transition: all 0.5s ease;
+
+                &.selected{
+                    background-color: lightblue;
+
+                    &-ok{
+                        background-color: lightgreen;
+                    }
+
+                    &-fail{
+                        background-color: lightcoral;
+                    }
+                }
             }
         }   
     }
-
-    
 }
