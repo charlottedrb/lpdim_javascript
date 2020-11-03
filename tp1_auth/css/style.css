@@ -53,6 +53,7 @@ body #bg.hidden {
 }
 
 body #bg #auth {
+  position: relative;
   width: 315px;
   margin: 50vh auto;
   -webkit-transform: translateY(-50%);
@@ -82,4 +83,11 @@ body #bg #auth .circle.selected-ok {
 
 body #bg #auth .circle.selected-fail {
   background-color: lightcoral;
+}
+
+body #bg #auth canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
 }
