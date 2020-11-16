@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: lightblue;
+}
+
+#chat {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 5px;
+  border-radius: 10px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#messages {
+  height: 300px;
+  width: 600px;
+  overflow-y: scroll;
+  background-color: white;
+  padding: 2rem;
+}
+
+#messages #message {
+  font-family: "Helvetica";
+  margin-top: 0.8rem;
+}
+
+#messages #message #pseudoMsg {
+  display: inline;
+  font-size: 0.8rem;
+  color: gray;
+}
+
+#messages #message #textMsg {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 4px;
+  font-size: 0.8rem;
+  color: white;
+  border-radius: 10px;
+  background-color: pink;
+}
+
+#tools {
+  padding-top: 5px;
+  float: right;
+}
+
+#tools input {
+  height: 1rem;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 4px;
+}
+
+#tools input#pseudo {
+  width: 50px;
+}
+
+#tools input#text {
+  width: 250px;
+}
+
+#tools button {
+  padding: 4px;
+  background-color: white;
+  color: pink;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#tools button:hover {
+  color: lightblue;
+  background-color: white;
+}
