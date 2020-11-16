@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>Sommaire</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h2 id="sommaire">Sommaire</h2>
+        <ul>
+            <li><a href="#sommaire">Sommaire</a></li>
+            <li><a href="#general">General</a>
+                <ul>
+                    <li><a href="#dom-document-object-model">DOM (Document Object Model)</a></li>
+                    <li><a href="#utilisation-du-js">Utilisation du JS</a></li>
+                    <li><a href="#d%c3%a9clenchement-du-code-js">Déclenchement du code JS</a></li>
+                </ul>
+            </li>
+            <li><a href="#debug">Debug</a>
+                <ul>
+                    <li><a href="#%c3%89criture-en-console">Écriture en console</a></li>
+                </ul>
+            </li>
+            <li><a href="#syntaxe">Syntaxe</a>
+                <ul>
+                    <li><a href="#variables">Variables</a></li>
+                    <li><a href="#boucles">Boucles</a></li>
+                    <li><a href="#fonctions">Fonctions</a>
+                        <ul>
+                            <li><a href="#definition">Definition</a></li>
+                            <li><a href="#callback">Callback</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#manipulation-du-dom">Manipulation du DOM</a>
+                <ul>
+                    <li><a href="#r%c3%a9cup%c3%a9rer-un-%c3%a9lement-depuis-le-dom">Récupérer un élement depuis le
+                            DOM</a>
+                        <ul>
+                            <li><a href="#parents-enfants">Parents, enfants</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#cr%c3%a9er-un-%c3%a9l%c3%a9ment">Créer un élément</a></li>
+                    <li><a href="#modifier-un-%c3%a9lement">Modifier un élement</a>
+                        <ul>
+                            <li><a href="#g%c3%a9rer-son-contenu">Gérer son contenu</a></li>
+                            <li><a href="#g%c3%a9rer-ses-classes-et-son-id">Gérer ses classes et son id</a></li>
+                            <li><a href="#g%c3%a9rer-ses-attributs">Gérer ses attributs</a></li>
+                            <li><a href="#g%c3%a9rer-ses-propri%c3%a9t%c3%a9s">Gérer ses propriétés</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#supprimer-un-%c3%a9l%c3%a9ment-du-body">Supprimer un élément du body</a></li>
+                </ul>
+            </li>
+            <li><a href="#%c3%89couteur-dev%c3%a8nements">Écouteur d'evènements</a>
+                <ul>
+                    <li><a href="#ajouter-un-%c3%a9couteur-d%c3%a9v%c3%a8nement-et-utilisation">Ajouter un écouteur
+                            d'évènement et utilisation</a></li>
+                    <li><a href="#event-this">Event, this</a>
+                        <ul>
+                            <li><a href="#event">Event</a></li>
+                            <li><a href="#this">This</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#types-d%c3%a9v%c3%a8nements">Types d'évènements</a></li>
+                </ul>
+            </li>
+            <li><a href="#ajax">AJAX</a>
+                <ul>
+                    <li><a href="#principes-et-utilisation">Principes et utilisation</a></li>
+                    <li><a href="#natif---ajaxjs-luc---post">Natif - Ajax.js (Luc) - POST</a></li>
+                    <li><a href="#axios">Axios</a>
+                        <ul>
+                            <li><a href="#post">POST</a></li>
+                            <li><a href="#get">GET</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <h2 id="general">General</h2>
+        <p>JavaScript (qui est souvent abrégé en « JS ») est un langage de script léger, orienté objet, principalement
+            connu
+            comme le langage de script des pages web. JavaScript ne doit pas être confondu avec le langage de
+            programmation
+            Java.
+            Le standard pour JavaScript est ECMAScript.
+            En 2012, tous les navigateurs modernes supportent complètement ECMAScript 5.1. Les anciens navigateurs
+            supportent au minimum ECMAScript 3. Une sixième version majeure du standard a été finalisée et publiée le 17
+            juin 2015. Cette version s'intitule officiellement ECMAScript 2015 mais est encore fréquemment appelée
+            ECMAScript 6 ou ES6. Étant donné que les standards ECMAScript sont édités sur un rythme annuel, cette
+            documentation fait référence à la dernière version en cours de rédaction, actuellement c'est ECMAScript
+            2020.
+        </p>
+        <h3 id="dom-document-object-model">DOM (Document Object Model)</h3>
+        <p>Le DOM est une <strong>représentation structurée</strong> du code HTML sous forme &quot;d’arbre&quot; créé
+            automatiquement par le navigateur. Chaque branche de cet arbre se termine par un <strong>nœud</strong> qui
+            va
+            contenir des <strong>objets</strong>.</p>
+        <p>On peut utiliser ces <strong>objets</strong>, leurs propriétés et leurs méthodes en JavaScript.</p>
+        <p>Le DOM contient ou correspond à un ensemble d’APIs qui sert de point d’entrée dans l’arborescence du code
+            HTML.
+        </p>
+        <p><a href="https://la-cascade.io/le-dom-cest-quoi-exactement/">En savoir plus sur le DOM</a></p>
+        <h3 id="utilisation-du-js">Utilisation du JS</h3>
+        <p>Le JS doit être inclus au sein du document HTML afin d'être utilisé et interprêté.
+            Il peut être inclus dans la balise <code>&lt;head&gt;&lt;/head&gt;</code> de l'HTML <strong>mais est plus
+                souvent intégré à la fin de la balise <code>&lt;body&gt;&lt;/body&gt;</code></strong>.
+            On priviligiera cette dernière solution afin de ne pas bloquer le chargement du code.</p>
+        <p>Pour charger le script JS dans la page, on utilisera</p>
+        <p><code>&lt;script type=&quot;text/javascript&quot;
+                src=&quot;./path/of/the/file.js&quot;&gt;&lt;/script&gt;</code>
+        </p>
+        <p>Il est possible de charger plusieurs fichier js en multipliant les balises
+            <code>&lt;script&gt;&lt;/script&gt;</code>.
+            A noter, le navigateur chargera les fichier dans l'ordre. Cela peut causer des erreurs lorsque des objets
+            utilisés sont initialisé dans des fichiers chargés après.
+            Il faudra privilégier un déclenchement du code JS lorsque tous les fichiers pour éviter ces erreurs
+            (<em>window
+                load</em>)</p>
+        <p>Exemple de page HTML simple contenant un script.</p>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;main.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+        <h3 id="d%c3%a9clenchement-du-code-js">Déclenchement du code JS</h3>
+        <p>Il est important d'éxécuter un code JS lorsque tous les éléments de la page sont chargés, pour éviter des
+            potentielles erreurs d'élément ou d'objet inexistant.</p>
+        <p>Il existe deux <strong>évènements</strong> majeurs lors du chargement d'une page HTML.</p>
+        <ul>
+            <li>
+                <p>Le chargement du code HTML complet : <code>DOMContentLoaded</code>
+                    Se déclenche lorsque le DOM est prêt à être utilisé (tous les noeuds sont connus).
+                    Peut être bloqué par des <code>&lt;script&gt;</code> en erreur.
+                    Les autres éléments (images, fonts, css) continuent de se charger.</p>
+            </li>
+            <li>
+                <p>Le chargement de la page complète (html,images,script etc.) : <code>window.onload</code>
+                    Se déclence lorsque tous les éléments de la page sont chargés.
+                    Son utilisation est plus rare car il est très souvent pas nécessaire d'attendre tous ces éléments.
+                </p>
+            </li>
+        </ul>
+        <p><a href="https://javascript.info/onload-ondomcontentloaded">En savoir plus</a></p>
+        <p>Afin de déclencher le JS au chargement du DOM, on utilisera un <a href="#eventlistners">écouteur
+                d'évènement</a>
+            sur l'objet <code>document</code>.</p>
+        <pre><code>document.addEventListener(&quot;DOMContentLoaded&quot;, function() {
+    //code JS à éxéctuer
+});
+</code></pre>
+        <p>Exemple d'un fichier JS standard</p>
+        <pre><code>var variable_globale;
+
+document.addEventListener(&quot;DOMContentLoaded&quot;, function() {
+    //code JS à éxéctuer
+});
+
+function function1(){}
+</code></pre>
+        <h2 id="debug">Debug</h2>
+        <p>Le JS étant lu et exécuté par le navigateur, il est possible d'utiliser ce dernier pour débugger un code JS
+            en
+            erreur.
+            Chaque navigateur dispose d'un console et d'outils dédiés au debug js.</p>
+        <p>Pour ouvrir la console :</p>
+        <ul>
+            <li>Chrome/Firefox : <code>F12</code></li>
+            <li>Opera : <code>Ctrl + Up + I</code></li>
+            <li>Safari : <code>Option + Cmd + J</code></li>
+        </ul>
+        <h3 id="%c3%89criture-en-console">Écriture en console</h3>
+        <p>Il est possible d'indiquer au code d'écrire des informations dans la console afin de débugger plus facilement
+            du
+            code (valeur d'une variable, texte, etc. etc.) avec l'object <code>console</code>.
+            Les méthodes suivantes peuvent prendre comme paramètres une chaîne de caractère <code>''</code> , une
+            variable
+            ou un objet :</p>
+        <ul>
+            <li>Afficher de texte simple
+                <code>console.log('texte')</code></li>
+            <li>Afficher la valeur d'une variable
+                <code>console.log(variable)</code></li>
+            <li>Afficher un mélange des deux
+                <code>console.log('Ma variable : ' + variable)</code></li>
+            <li>Afficher le nom et le contenu d'une variable</li>
+            <li><code>console.log({variable})</code></li>
+        </ul>
+        <p>L'objet <code>console</code> permet d'afficher différents types de message dans la console du navigateur :
+        </p>
+        <ul>
+            <li>Un log standard : <code>console.log()</code></li>
+            <li>Un message d'informations : <code>console.info()</code></li>
+            <li>Un message d'avertissement : <code>console.warn()</code></li>
+            <li>Un message d'erreur : <code>console.error()</code></li>
+        </ul>
+        <p>On peut multiplier les appels à console en ajoutant de nouveaux paramètres</p>
+        <pre><code>console.log(myVar, 'coucou', otherVar);
+</code></pre>
+        <h2 id="syntaxe">Syntaxe</h2>
+        <h3 id="variables">Variables</h3>
+        <p>Il existe 3 manières de déclarer une variable en JS, <code>var</code>, <code>let</code> et
+            <code>const</code>.
+        </p>
+        <p><strong>var</strong></p>
+        <p><code>var</code> permet d'affecter une variable au scope fonction. Cependant, <code>var</code> peut permettre
+            d'affecter une variable au scope global lorsqu'il est utilisé en dehors d'une fonction.</p>
+        <pre><code>var myGlobalVar = 'super value'; // variable globale
+
+function myFunction(){
+    var myVar = 'value'; // scope fonction.
+}
+</code></pre>
+        <p><strong>let</strong></p>
+        <p><code>let</code> permet de déclarer et initialiser une variable au scope courant. (fonction, boucle,
+            condition).
+            <code>let</code> permet de réaffcter la variable au cours du code.</p>
+        <p><strong>const</strong></p>
+        <p><code>const</code> permet de déclarer une <em>constante</em> qui aura une portée au scope actuel, comme avec
+            <code>let</code>.
+            Cependant, <code>const</code> bloque la réaffectation d'une variable au cours du code.
+            <code>const</code> est le plus souvent utilisé lors de boucles afin de maintenir une cohérence du code.</p>
+        <pre><code>for (const i=0; i&lt;=10; i++){
+    ...
+}
+</code></pre>
+        <p><a href="https://putaindecode.io/articles/es6-es2015-la-declaration-de-variables-avec-const-let-et-var/">En
+                savoir plus</a>
+            <a href="https://medium.com/@vincent.bocquet/var-let-const-en-js-quelles-diff%C3%A9rences-b0f14caa2049">En
+                savoir plus aussi</a></p>
+        <h3 id="boucles">Boucles</h3>
+        <p>Il existe en javascript une multitude de manière de faire des boucles pour parcourir des tableaux ou des
+            objets.
+        </p>
+        <ul>
+            <li>(do) while</li>
+            <li>for
+                <ul>
+                    <li>for..in</li>
+                    <li>for..of</li>
+                </ul>
+            </li>
+        </ul>
+        <p><strong>(do) while</strong></p>
+        <p>La boucle while permet de répéter une série d’instructions tant que la condition de sortie n’est pas
+            vérifiée.
+        </p>
+        <pre><code>let i = 0;
+while(i &lt; 10){
+    console.log(i);
+    i++;
+}
+</code></pre>
+        <p>L'instruction <code>while</code> peut-être précédée d'une instruction <code>do</code> qui exécutera au moins
+            une
+            fois le code, même si la condition de sortie est déjà respectée.</p>
+        <pre><code>let i = 10;
+do {
+    console.log(i);
+    i++;
+} while (i &lt; 10);
+</code></pre>
+        <p><strong>for</strong></p>
+        <p>Une boucle for répète des instructions jusqu'à ce qu'une condition donnée ne soit plus vérifiée. La boucle
+            <code>for</code> JavaScript ressemble beaucoup à celle utilisée en C ou en Java.
+            La boucle <code>for</code> utilise une syntaxe relativement condensée et est relativement puissante ce qui
+            en
+            fait la condition la plus utilisée en JavaScript.</p>
+        <pre><code>for (let i = 0; i &lt; 10; i++) {
+    console.log(i);
+}
+</code></pre>
+        <p><strong><code>for..in</code></strong></p>
+        <p>L'instruction <code>for...in</code> permet d'itérer sur l'ensemble des propriétés énumérables d'un objet.
+            <code>for...in</code> permet de parcourir les propriétés définies par l'utilisateur ainsi que les éléments
+            de
+            tableau.
+            Ainsi, si l'objet <em>Array</em> est modifié en lui ajoutant des propriétés et/ou des méthodes, la boucle
+            <code>for...in</code> renverra le nom de ces nouvelles propriétés en plus des indices des éléments du
+            tableau.
+        </p>
+        <pre><code>let objet = {
+    propriete: &quot;test&quot;,
+    propriete2: &quot;test2&quot;,
+    propriete3: &quot;test3&quot;
+};
+
+for (let property in objet) {
+    console.log(objet[property]);
+}
+</code></pre>
+        <p><strong><code>for..of</code></strong></p>
+        <p>L'instruction for...of crée une boucle qui fonctionne avec les objets itérables (qui incluent Array, Map,
+            Set,
+            l'objet arguments, etc.).
+            <code>for...of</code> parcourt les valeurs des propriétés alors que <code>for...in</code> parcourt les noms
+            des
+            propriétés d'un objet.</p>
+        <pre><code>let arr = [3, 5, 7];
+arr.toto = &quot;coucou&quot;;
+
+for (let i in arr) {
+console.log(i); // affiche 0, 1, 2, &quot;toto&quot; dans la console
+}
+
+for (let i of arr) {
+console.log(i); // affiche 3, 5, 7 dans la console
+}
+</code></pre>
+        <h3 id="fonctions">Fonctions</h3>
+        <h4 id="definition">Definition</h4>
+        <p>Il existe plusieurs façons de définir une fonction.
+            Il est d'usage courant de définir une fonction en dehors de tout écouteur d'evènement.</p>
+        <pre><code>document.addEventListener(&quot;DOMContentLoaded&quot;, function() {
+    //code JS à éxéctuer
+});
+
+function function1(param1){
+    // code de la fonction
+}
+</code></pre>
+        <p>Bien qu'il soit possible d'imbriquer plusieurs fonctions en JS, il est préférable de ne pas utiliser ce cas
+            de
+            figure.</p>
+        <p><strong>Méthode classique</strong></p>
+        <p>La façon la plus classique de définir une fonction est</p>
+        <pre><code>function myFunction(param) {
+    // code
+}
+</code></pre>
+        <p>Elle sera utilisée pour toutes les fonctions d'usage courant, comme factoriser et éviter la répétition de
+            code.
+            Les fonctions peuvent retourner des éléments.</p>
+        <p><strong>Fonction anonyme</strong></p>
+        <p>Il est possible en JS de créer une fonction qui n'a pas de mom (anonyme donc).
+            Leur usage est restreint à des appels unique.
+            C'est donc ce qu'on utilise naturellement dans les callback.</p>
+        <pre><code>function(){
+    //code
+}
+</code></pre>
+        <p><strong>Expression de fonction</strong></p>
+        <p>En JS, on peut également créer une fonction grâce à une expression de fonction.
+            Ces fonctions sont souvent des fonctions anonymes sur lequel on souhaite ajouter un nom.
+            Les expressions de fonction sont pratiques lorsqu'il s'agit de passer une fonction comme argument d'une
+            autre
+            fonction.</p>
+        <pre><code>let square = function (nb) { return nb * nb };
+let x = square(4);
+</code></pre>
+        <p><strong>Fonction flêchée (arrow function)</strong></p>
+        <p>Une expression de fonction fléchée permet d'utiliser une syntaxe plus courte et concise que les expressions
+            de
+            fonctions classiques.
+            <strong>Ces fonctions ne possèdent alors pas de valeur pour this ou event.</strong>
+            Les fonctions fléchées sont obligatoirement anonymes mais peuvent être exprimées (voir ci-dessus).</p>
+        <pre><code>let myArrowFunction = (param) =&gt; {
+    code
+}
+</code></pre>
+        <p>Notez que souvent, les parenthèses autour du paramètres sont absentes. En effet, elles ne sont pas
+            obligatoires.
+        </p>
+        <h4 id="callback">Callback</h4>
+        <p>Une fonction de type <em>callback</em> est une fonction qui est passée en paramètre d'une autre fonction.
+            Elle est généralement exécutée après cette dernière (call<em>back</em>).
+            Vous utilisez naturellement les fonctions callback lors d'écouteurs d'evèmenents.</p>
+        <pre><code>$el.addEventListener('type', callback);
+
+$el.addEventListener('click', function(){
+    // On est dans une fonction anonyme de callback
+})
+
+ajax('.url.php',{n:4}, function(){
+    // foncion anonyme de callback
+})
+</code></pre>
+        <p>On peut aussi utiliser une arrow function. Attention celle-ci ne possèdera pas de <strong>this</strong> ou de
+            <strong>event</strong>.</p>
+        <pre><code>ajax('.url.php',{n:4}, () =&gt;{
+    // code
+})
+</code></pre>
+        <p>Il est possible de passer le nom d'une fonction déjà existante en callback.
+            Il ne sera par contre <strong>pas possible de passer de paramètres à cette fonction</strong>.
+            Ce cas est utile lorsque la fonction de destination ne retourne rien et n'attend aucun paramètre.</p>
+        <p>Il est cependant possible de passer des paramètres implicitement.</p>
+        <p>Ici <em>addEventListener</em> appelera la fonction <em>myFunction</em> avec <em>event</em> comme paramètre.
+        </p>
+        <pre><code>function myFunction(){}
+
+$el.addEventListener('type', myFunction);
+</code></pre>
+        <p><strong>Paramètres implicites</strong></p>
+        <p>Lors de l'appel d'un callback, un paramètres peut-être implicite.
+            Si la fonction qui utilise la méthode callback est conçue pour appeler la fonction avec un paramètre, alors
+            il
+            sera passé de manière implicite.</p>
+        <pre><code>// fichier ajax.js
+[...]
+xhr.onreadystatechange = function() {
+    if (xhr.readyState == XMLHttpRequest.DONE &amp;&amp; xhr.status == 200) {
+        callback(xhr.response);
+    }
+};
+[...]
+</code></pre>
+        <p>Ici, callback (qui est la fonction passée en paramètre de ajax()), va être appelée avec xhr.response en
+            paramètre.
+            On peut donc appeler cette méthode de plusieurs façons :</p>
+        <pre><code>ajax(&quot;./jokes.php&quot;, { n: 4 }, function($response) {
+    console.log($response);
+});
+
+ajax(&quot;./jokes.php&quot;, {}, displayAllJokes);
+
+function displayAllJokes(response) {
+    console.log(response) // on a bien la response envoyée par ajax.js
+}
+</code></pre>
+        <h2 id="manipulation-du-dom">Manipulation du DOM</h2>
+        <p>Ce qu’on appelle « DOM » est en fait un ensemble d’interfaces qui vont pouvoir fonctionner ensemble et nous
+            permettre notamment d’accéder à et de manipuler divers éléments de nos documents en JavaScript.</p>
+        <ul>
+            <li>L’interface Window qui fait référence à la fenêtre du navigateur</li>
+            <li>L’interface Event qui représente tout événement qui a lieu dans le DOM</li>
+            <li>L’interface Node qui est l’interface de base pour une grande partie des objets du DOM</li>
+            <li>L’interface Document qui représente le document actuel et qui va être l’interface la plus utilisée</li>
+            <li>L’interface Element qui est l’interface de base pour tous les objets d’un document</li>
+        </ul>
+        <h3 id="r%c3%a9cup%c3%a9rer-un-%c3%a9lement-depuis-le-dom">Récupérer un élement depuis le DOM</h3>
+        <p>Il existe plusieurs façons de pointer (et donc de stocker dans une variable) un élément présent dans le DOM.
+        </p>
+        <p>Il est nécessaire de pointer un élément afin de pouvoir récupérer des informations, le modifier, lui ajouter
+            des
+            évènements ou encore le supprimer.
+            Le plus courant est de le stocker dans une variable, bien que l'imbriquation de JS permet de s'en passer
+            dans
+            quelques cas.
+            Les méthodes les plus simples et les plus modernes pour récupérer un élément du DOM sont
+            <code>querySelector</code> et <code>querySelectorAll</code>.</p>
+        <p>A notér que ces fonctions vont fonctionner sur le <em>document</em> mais aussi sur des éléments.</p>
+        <p><strong>querySelector</strong></p>
+        <p>C'est la façon la plus simple de récupérer un élément. Il est basé sur le selecteur <em>Sizzle</em>, hérité
+            de
+            jQuery.
+            Il s'agit en majeur partie de la syntaxe d'un sélecteur CSS.
+            <strong>querySelector ne renvoit qu'un seul élément. Si plusieurs éléments sont selectionnables, il renverra
+                le
+                premier dans le dom.</strong>
+            Il est donc possible de séctionner un élément par :</p>
+        <ul>
+            <li>Son tag (nom de balise, <code>&lt;div&gt;&lt;/div&gt;</code>)</li>
+            <li>Son Id (<code>&lt;div id=&quot;identifiant&quot;&gt;&lt;/div&gt;</code>)</li>
+            <li>Une de ses classes (<code>&lt;div class=&quot;classe&quot;&gt;&lt;/div&gt;</code>)</li>
+            <li>Un attribut (<code>.classe[attribut='valeure']</code>)</li>
+            <li>Un selecteur hérité (<code>ul li a</code>, tous les a dans un li dans un ul)</li>
+            <li>etc...</li>
+            <li></li>
+        </ul>
+        <pre><code>let el = document.querySelector('p') // 1er élément p
+let el = document.querySelector('#id') // élémement id='id'
+let el = document.querySelector('.classe') // 1er qui a la classe 'classe'
+</code></pre>
+        <p><strong>querySelectorAll</strong></p>
+        <p><code>querySelectorAll</code> fonctionne de manière identique à <code>querySelector</code> <strong>sauf qu'il
+                renvoit tous les éléments correspondants au selecteur</strong></p>
+        <p>On pourra donc boucler sur les éléments afin de modifier les propriétés de tout ces élément identiques.
+            On bouclera sur ces éléments en utilisant <strong>for..of</strong></p>
+        <pre><code>let els = document.querySelector('p') // tous les p
+
+for(let el of els){
+    [...]
+}
+</code></pre>
+        <p><strong>Autres méthodes</strong></p>
+        <p>Les méthodes ci-dessous font doublons avec les documents querySelector mais peuvent être utiles de temps à
+            autres.</p>
+        <pre><code>document.getElementById('id' ); // renvoit un élément selon son id
+document.getElementsByClassName('classe'); // renvoit un tableau de tous les éléments qui ont la class classe. Noter qu'il s'agit toujours d'un tableau.
+document.getElementsByClassName('classe')[0]; // Pour un seul élément il faut ajouter l'index [0]
+document.getElementsByTagName('tag'); // Pareil que pour classe sauf que c'est avec la balise.
+document.getElementsByTagName('tag')[0];
+</code></pre>
+        <h4 id="parents-enfants">Parents, enfants</h4>
+        <p><strong>Sélectionner l'élément parent</strong></p>
+        <p>Avec la construction du DOM en 'arbre', un élément possède toujours un seul et unique parent.
+            Pour pointer et séctionner l'élément parent d'un élément, on utilise <code>parentNode</code>.</p>
+        <pre><code>&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;ul&gt;
+
+let $enfant = document.querySelector('li');
+let $parent = $enfant.parentNode // &lt;ul&gt;
+</code></pre>
+        <p>Si l'élément ne possède pas de parent évident, il s'agira certainement de <code>body</code>.</p>
+        <p><strong>Sélectionner un ou les enfants</strong></p>
+        <p>Les enfants d'un élément sont les branches successives dans l'arbre.
+            Un enfant peut être résumé à une balise dans une autre balise.
+            Un élément peut ne pas avoir d'enfants. (Par exemple un <code>&lt;p&gt;&lt;/p&gt;</code> contenant
+            uniquement du
+            texte)</p>
+        <p><em>Tous les enfants</em></p>
+        <p>Pour sélectionner tous les enfants d'un élément, on utilisera sa propriété <code>children</code>, qui reverra
+            un
+            <em>tableau</em> contenant tous les enfants.
+            À noter que children reverra uniquement les enfants directs de l'élement (et non pas tous les descendants
+            possibles).</p>
+        <pre><code>let $el = document.querySelector('article');
+let $enfants = $el.children;
+
+for(child of children){
+
+}
+</code></pre>
+        <p>On peut aussi utiliser <code>$el.childNodes</code> pour renvoyer toute la descendance d'un élément.</p>
+        <p><em>Sélectionner un/des enfants</em></p>
+        <p>Il est possible de sélectionner un ou des enfant.s en particulier, selon leur type/id/class.
+            <strong>En effet, il est possible d'utiliser <code>querySelector</code> sur un élément directement, ou
+                <code>querySelectorAll</code>.</strong></p>
+        <pre><code>let $el = document.querySelector('table');
+let $tr = $el.querySelectorAll('tr');
+let $td = $tr.querySelector('td');
+</code></pre>
+        <p><em>Un parent éloigné</em></p>
+        <p>La méthode <code>closest</code> renvoie l'ancêtre le plus proche de l'élément qui correspond aux sélecteurs
+            passés comme paramètres.
+            S'il n'existe pas de tel ancêtre, la méthode renvoie null.
+            <code>closest()</code> utilise les mêmes sélecteurs que querySelector.</p>
+        <pre><code>&lt;article&gt;
+    &lt;div&gt;
+        &lt;span&gt;
+            &lt;p&gt;&lt;/p&gt;
+        &lt;/span&gt;
+    &lt;/div&gt;
+&lt;/article&gt;
+
+let $el = document.querySelector('li');
+let $art = $el.closest('article');
+</code></pre>
+        <h3 id="cr%c3%a9er-un-%c3%a9l%c3%a9ment">Créer un élément</h3>
+        <p>Il peut être utile de créer un élément HTML directement depuis le JS, notamment couplé avec l'utilisation
+            d'AJAX.
+            Cependant le code en devient vite lourd et complexe. Malheureusement, cette syntaxe est unique et ne peut
+            pas
+            être factorisée.
+            Il est préférable de ne pas imbriquer la création d'élément et de bien séparer les éléments.</p>
+        <p>Pour créer un élément on utilsera : <code>document.createElement('tag')</code>.
+            Le paramètre sera la <em>balise</em> de l'élément.</p>
+        <pre><code>let $el = document.createElement('div');
+</code></pre>
+        <p><strong>Bien qu'un élément créé existe dans la mémoire du navigateur, il doit être ajouté au body pour être
+                visible</strong>.
+            Si l'élément a été ajouté à un autre élément, il faut veiller à ce qu'au moins un ancêtre de l'élément soit
+            ajouté au <code>body</code>.</p>
+        <p>Pour ajouter un élément à un autre, ou au body on peut utiliser <code>append</code> ou <code>prepend</code>.
+            <code>append</code> ajoutera l'élément à la <em>fin</em> de l'élément, après tout texte ou élément.
+            <code>prepend</code> ajouter l'élément au début, avant tout élément ou texte.</p>
+        <pre><code>let $el = document.createElement('div');
+let $body = document.querySelector('body');
+$body.append($el);
+</code></pre>
+        <h3 id="modifier-un-%c3%a9lement">Modifier un élement</h3>
+        <p>Lorsqu'un élément est sélection, il est tout à fait possible de modifier ses propriétés.</p>
+        <h4 id="g%c3%a9rer-son-contenu">Gérer son contenu</h4>
+        <p>Pour modifier le contenu textuel d'un élément, on utilisera sa propriété <code>innerHTML</code>.</p>
+        <p><code>el.innerHTML</code> reverra une chaine de caractères contenant tout l'HTML au sein de l'élément.
+            Notez que si l'élément contient d'autres éléments, leur code HTML sera revoyé.</p>
+        <p>Il est possible de réaffcter ou de concaténer cette string avec une nouvelles chaine.</p>
+        <pre><code>&lt;p&gt;Lorem ipsum &lt;span&gt;dolores sit&lt;/span&gt; amet&lt;/p&gt;
+$el = document.querySelector(p);
+
+let $html = $el.innerHTML; // &quot;Lorem ipsum &lt;span&gt;dolores sit&lt;/span&gt; amet&quot;
+
+$el.innerHTML = $html+&quot; consectetur adipiscing elit&quot;;
+&lt;p&gt;Lorem ipsum &lt;span&gt;dolores sit&lt;/span&gt; amet consectetur adipiscing elit&lt;/p&gt;
+
+$el.innerHTML = &quot;sed do eiusmod tempor incididunt&quot;;
+&lt;p&gt;sed do eiusmod tempor incididunt&lt;/p&gt;
+</code></pre>
+        <h4 id="g%c3%a9rer-ses-classes-et-son-id">Gérer ses classes et son id</h4>
+        <p><strong>Classes</strong></p>
+        <p>Pour ajouter, supprimer ou modifier une classe, un élément possède une liste de ses classes, sur laquelle il
+            est
+            possible de travailler.</p>
+        <p>La propriété utilisée est <code>classList</code>, qui renvoit une <em>map</em> des classes de l'élément.</p>
+        <p>Il est possible de lire, ajouter et supprimer une classe.
+            Pour ajouter une classe, on utilisera <code>classList.add()</code>, et pour rupp</p>
+        <pre><code>&lt;div class=&quot;menu element active&quot;&gt;&lt;/div&gt;
+
+let $el = document.querySelector('div');
+let $clases = $el.classList; // [menu, element, active]
+
+$el.classList.remove('active')
+&lt;div class=&quot;menu element&quot;&gt;&lt;/div&gt;
+
+$el.classList.add('static')
+&lt;div class=&quot;menu element static&quot;&gt;&lt;/div&gt;
+</code></pre>
+        <p>On peut aussi basculer une classe selon sa présence.
+            Si elle est présente, on l'enlève. Si elle est absente, ou l'ajoute.</p>
+        <p>On utilisera <code>toggle</code> sur la classList.</p>
+        <pre><code> $el.classList.toggle('active')
+</code></pre>
+        <p><strong>Identifiant</strong></p>
+        <p>Un élément peut posséder un id. Notez que ce n'est pas obligatoire.</p>
+        <p>L'id est accessible et modifiable avec la propriété <code>id</code> de l'élément.</p>
+        <pre><code>&lt;div id=&quot;zediv&quot; class=&quot;menu element active&quot;&gt;&lt;/div&gt;
+
+let $el = document.querySelector('div');
+let $id = $el.id; // 'zediv'
+
+$el.id = 'ozerdiv'
+&lt;div id=&quot;ozerdiv&quot; class=&quot;menu element active&quot;&gt;&lt;/div&gt;
+</code></pre>
+        <h4 id="g%c3%a9rer-ses-attributs">Gérer ses attributs</h4>
+        <p>Hormis class et id, il est aussi possible de modifier en JS les autres attribut de balises d'un élément, tels
+            que
+            <code>src</code> ou <code>href</code>.
+            La lecture et la modification reposent sur les méthodes :</p>
+        <p><code>getAttribute('attribut')</code> reverra la valeur de l'attribut passé en paramètre. Si l'élément ne
+            possède
+            pas cet attribut, elle reverra null.
+            Notez que cette méthode renverra toujours une <em>chaine de caractère</em>.</p>
+        <p><code>setAttribute('attribut','value')</code> modifiera la valeur de l'attribut passé en paramètre. Si
+            l'attribut
+            n'existe pas pour l'élément, il sera crée.
+            Si le paramètre <code>value</code> est vide, alors elle supprimera l'attribut.</p>
+        <pre><code>&lt;a href=&quot;lelien.html&quot;&gt;&lt;/a&gt;
+let $el = document.querySelector('a');
+let $href = $el.getAttribute('href') // 'lelien.html'
+
+$el.setAttribute('target', '_blank');
+&lt;a href=&quot;lelien.html&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;
+</code></pre>
+        <h4 id="g%c3%a9rer-ses-propri%c3%a9t%c3%a9s">Gérer ses propriétés</h4>
+        <p>Il est tout à fait possible d'affecter à un élément une propriété, qui sera stockée est pourra être
+            réutilisée
+            plus tard.
+            Ces propriétés ne seront pas visible en html.</p>
+        <pre><code>let $el = document.querySelector('article');
+$el.myproperty = 'test';
+console.log($el.myproperty); //test
+</code></pre>
+        <h3 id="supprimer-un-%c3%a9l%c3%a9ment-du-body">Supprimer un élément du body</h3>
+        <p>Lorsque l'on souhaite supprimer un élément du body, il faut supprimer le noeud correspondant au sein de son
+            <strong>parent</strong>.
+            On utilsera la méthode <code>removeChild</code> de l'élément.
+            On peut utiliser le raccourci : <code>$el.parentNode.removeChild(#el);</code> qui séléctionne l'élément
+            parent
+            de <code>$el</code> et qui supprime l'enfant <code>$el</code>.</p>
+        <pre><code>&lt;article&gt;
+    &lt;div&gt;
+        &lt;span&gt;
+            &lt;p&gt;&lt;/p&gt;
+        &lt;/span&gt;
+    &lt;/div&gt;
+&lt;/article&gt;
+
+let $el = document.querySelector('span');
+$el.parentNode.removeChild($el);
+
+&lt;article&gt;
+    &lt;div&gt;&lt;/div&gt;
+&lt;/article&gt;
+</code></pre>
+        <h2 id="%c3%89couteur-dev%c3%a8nements">Écouteur d'evènements</h2>
+        <p>En JavaScript, un évènement est une action qui se produit et qui possède deux caractéristiques essentielles :
+        </p>
+        <ul>
+            <li>C’est une action qu’on peut « écouter », c’est-à-dire une action qu’on peut détecter car le système va
+                nous
+                informer qu’elle se produit ;</li>
+            <li>C’est une action à laquelle on peut « répondre », c’est-à-dire qu’on va pouvoir attacher un code à cette
+                action qui va s’exécuter dès qu’elle va se produire.</li>
+        </ul>
+        <p>On peut alors modifier un élément selon une action utilisateur (click, hover, clavier, etc.)</p>
+        <h3 id="ajouter-un-%c3%a9couteur-d%c3%a9v%c3%a8nement-et-utilisation">Ajouter un écouteur d'évènement et
+            utilisation
+        </h3>
+        <p>Aujourd’hui, en JavaScript, il existe trois grandes façons d’implémenter un gestionnaire d’évènements :</p>
+        <p>On peut utiliser des attributs HTML de type évènement (non recommandé)
+            On peut utiliser des propriétés JavaScript liées aux évènements
+            On peut utiliser la méthode <code>addEventListener</code> (recommandé).
+            Nous préférerons largement cette dernière méthode pour des raisons de performance et de fonctionnalités.</p>
+        <p>La méthode <code>addEventListener</code> possède deux paramètres. D'autres paramètres peuvent s'ajouter mais
+            ne
+            font pas sens pour nous actuellement.</p>
+        <ul>
+            <li>Le type d'événement à écouter (click, hover ...)</li>
+            <li>Une fonction (callback), qui s'éxécutera une fois l'élément déclenché</li>
+        </ul>
+        <p>Il est possible d'attacher un écouteur d'évènement à un élément, ou au <code>document</code> ou encore à la
+            fenêtre <code>window</code> (utile pour le resize, le scoll ou le clavier)</p>
+        <pre><code>$el.addEventListener('type_of_event', function(){
+    // code à exécuter lors du déclenchement de l'élément.
+});
+
+window.addEventListener('scroll', myScrollFunction); //appel d'une fonction existante
+</code></pre>
+        <h3 id="event-this">Event, this</h3>
+        <h4 id="event">Event</h4>
+        <p><code>addEventListener</code> est basée sur <code>event</code>.
+            Cet <code>event</code> contient un nombre de propriété intéressantes qui peuvent être utile dans certains
+            cas.
+        </p>
+        <p><code>event</code> est un paramètre implicite <strong>toujours</strong> renvoyé, qui sera accessible dans la
+            fonction de callback.</p>
+        <pre><code>$el.addEventListener('click', myFunction);
+
+function myFunction(param){
+    console.log(param); // MouseEvent
+}
+</code></pre>
+        <p>Il est possible de modifier son nom lors de l'appel d'une fonctionne anonyme en callback</p>
+        <pre><code>$el.addEventListener('click', function(e){
+    console.log(e) // event
+});
+</code></pre>
+        <p><code>event</code> est utile lors de la frappe clavier (sur window/keyup) ou encore sur un click dans la
+            fenetre
+            (coordonées x/y du click).</p>
+        <h4 id="this">This</h4>
+        <p>Dans la fonction callback d'un écouteur, pour travailler sur l'élément sur lequel l'action a été effectuée,
+            on
+            pourra utiiser <code>this</code>.
+            <code>this</code> fait alors référence à l'élément.
+            En effet, l'élément sur lequel le click a été effectué n'est peut-être pas stocké en variable.</p>
+        <pre><code>$el.addEventListener('click', function(){
+    let $element = this; // $el
+});
+</code></pre>
+        <p>Notez que lors de l'appel d'une fonction non anonyme, <code>this</code> est transporté lors de l'appel.</p>
+        <pre><code>$el.addEventListener('click', myFunction);
+
+function myFunction(){
+    console.log(this); //=$el
+}
+</code></pre>
+        <p><strong>Enfin, si les callback sont des fonctions fléchées (arrow function), this et event ne seront pas
+                accessibles</strong></p>
+        <h3 id="types-d%c3%a9v%c3%a8nements">Types d'évènements</h3>
+        <p><a href="https://www.w3schools.com/jsref/dom_obj_event.asp">Liste non exhaustive des evenement écoutables</a>
+        </p>
+        <pre><code>'blur' : lorsque qu'un input est libéré (el)
+'change' : lorsqu'un input a changé (el)
+'click' : click sur l'élément (el,window)
+'dblclick' : double-click sur l'élément (el,window)
+'focus' : lorsqu'un input est sélectionné (el)
+'keypress': lorsqu'une frappe est détectée sur le clavier (window)
+'mouseenter' : lorsque la souris survol un élément, entrée (el)
+'mouseleave' : lorsque la souris survol un élément, sortie (el)
+'resize' : lorsque la fenêtre est redimensionnée (window)
+'scroll' : lorsqu'un scroll est détecté (window)
+</code></pre>
+        <h2 id="ajax">AJAX</h2>
+        <p>AJAX est l'acronyme d'Asynchronous JavaScript And XML, JavaScript Et XML Asynchrones.</p>
+        <p>AJAX n'est ni une technologie ni un langage de programmation
+            AJAX est un concept de programmation Web reposant sur plusieurs technologies comme le JavaScript et le XML –
+            d'où le nom AJAX.
+            A l'heure actuelle, le XML tend à être délaissé au profit du JSON, ce qui explique que certains puristes
+            utilisent l'acronyme AJAJ</p>
+        <p>L'idée même d'AJAX est de faire communiquer une page Web avec un serveur Web sans occasionner le rechargement
+            de
+            la page. C'est la raison pour laquelle JavaScript est utilisé, car c'est lui qui va se charger d'établir la
+            connexion entre la page Web et le serveur.</p>
+        <h3 id="principes-et-utilisation">Principes et utilisation</h3>
+        <h3 id="natif---ajaxjs-luc---post">Natif - Ajax.js (Luc) - POST</h3>
+        <p><strong>Natif</strong></p>
+        <pre><code>let xhr = new XMLHttpRequest();
+xhr.open(&quot;POST&quot;, url, true);
+xhr.responseType = &quot;json&quot;;
+xhr.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);
+
+xhr.onreadystatechange = function() {
+    if (xhr.readyState == XMLHttpRequest.DONE &amp;&amp; xhr.status == 200) {
+        // Code a éxécter avec la réponse xhr.response
+    }
+};
+xhr.send('paramètres');
+</code></pre>
+        <p><strong>Ajax.js</strong></p>
+        <pre><code>function ajax(url, params, callback) {}
+
+ajax('url',{param},callback)
+</code></pre>
+        <ul>
+            <li>url : URL du fichier ou de l'API distante</li>
+            <li>{param} : tableau de paramètre JSON qui seront envoyé à la requête dans le $_POST[]</li>
+            <li>callback : fonction de traitement, qui aura comme paramètre implicte <code>response</code>
+                Peut être une fonction anonyme ou une fonction distante.</li>
+            <li></li>
+        </ul>
+        <pre><code>ajax(&quot;./jokes.php&quot;, {param1:'value', param2:'value2'}, function($response) {
+    console.log($response);
+});
+
+ajax(&quot;./jokes.php&quot;, {}, displayAllJokes);
+</code></pre>
+        <h3 id="axios">Axios</h3>
+        <p><strong>Il faudra penser à intégrer axios AVANT le main.js dans le fichier HTML</strong>
+            Utilisez le cdn</p>
+        <pre><code>&lt;script src=&quot;https://unpkg.com/axios/dist/axios.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+        <h4 id="post">POST</h4>
+        <pre><code>axios.post('/user', {
+    firstName: 'Fred',
+    lastName: 'Flintstone'
+})
+.then(function (response) {
+    // code à exécuter
+})
+.catch(function (error) {
+    console.log(error);
+});
+</code></pre>
+        <h4 id="get">GET</h4>
+        <pre><code>axios.get('/user', {
+    params: {
+      ID: 12345
+    }
+})
+.then(function (response) {
+    // code à exécuter
+})
+.catch(function (error) {
+    console.log(error);
+});
+</code></pre>
+    </div>
+</body>
+
+</html>

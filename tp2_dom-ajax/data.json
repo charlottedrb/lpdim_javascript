@@ -1,20 +1,30 @@
 [
     {
-        "id": 41711,
+        "id": "36826",
+        "name": "undefined",
+        "color": "undefined",
+        "degre": "4",
+        "param": "undefined"
+    },
+    {
+        "id": "32775",
         "name": "Chouffe",
-        "couleur": "Rouge",
-        "degre": "8,5"
+        "color": "undefined",
+        "degre": "8",
+        "param": "8"
     },
     {
-        "id": 36826,
-        "name": "1664",
-        "couleur": "Blanche",
-        "degre": "4"
-    },
-    {
-        "id": 37638,
+        "id": "14615",
         "name": "Likorn Black",
-        "couleur": "Brune",
-        "degre": "9"
+        "color": "Brune",
+        "degre": "9",
+        "param": "Likorn Black"
+    },
+    {
+        "id": "43810",
+        "name": "Heineken",
+        "color": "Blonde",
+        "degre": "4"
     }
+]   }
 ]

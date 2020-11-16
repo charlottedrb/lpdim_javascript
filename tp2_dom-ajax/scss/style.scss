@@ -1,3 +1,81 @@
-body{
-    background-color: #fff;
+*{
+    font-family: 'Helvetica';
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: #000;
+    color: white;
+    line-height: 5vh;
+    min-height: 50px;
+    text-align: center;
+}
+
+article{
+    position: relative;
+    background-color: rgba(255,80,0,1);
+    color: white; 
+    border-radius: 5px;
+    margin : 20px; 
+    padding: 20px;
+    display: inline-block; 
+
+    span{
+        display: inline-block;
+    }
+}
+
+button{
+    &.delButton{
+        position: absolute;
+        top: -5px;
+        right: -5px; 
+        border: none;
+        background-color: #000;
+        color: white; 
+        width: 20px;
+        height: 20px; 
+        text-align: center; 
+        border-radius: 50%;
+        transition: all 0.5s ease;
+        cursor: pointer;
+        font-size: 0.6em;
+
+        &:hover{
+            background-color: rgba(255,255,255 ,0.5);
+            color: rgba(255,80,0,1);
+        }
+    }
+}
+
+#formDiv{
+    margin: 10px; 
+
+    p{
+        margin: 10px;
+    }
+
+    span{
+        display: inline-block;
+        width: 80px; 
+    }
+
+    input{
+        border: none; 
+        border-bottom: solid 2px rgba(255,80,0,1);
+    }
+    
+    button{
+        border: none; 
+        background-color: black;
+        color: white; 
+        padding: 5px; 
+        cursor: pointer; 
+        transition: all 0.5s ease;
+
+        &:hover{
+            background-color: rgba(255,80,0,1);
+        }
+    }
 }
