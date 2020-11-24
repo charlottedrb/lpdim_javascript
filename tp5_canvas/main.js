@@ -3,11 +3,17 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.width = window.innerWidth
     const c = canvas.getContext("2d")
 
+    const w = canvas.width
+    const h = canvas.height
+
     let angle = 0; 
     let delta = Math.PI/90
 
     let last = null
     let delay = 30
+
+    let image = document.createElement("img")
+    image.src = "img.jpg"
 
     let animate = (timestamp) => {
         if(!last){
@@ -17,15 +23,16 @@ document.addEventListener("DOMContentLoaded", () => {
         if(timestamp - last > delay){
             last = timestamp
 
-            c.clearRect(0, 0, canvas.width, canvas.height)
+            c.clearRect(0, 0, w, h)
             
             c.save()
             c.translate(500, 200)
             c.rotate(angle)
             c.beginPath()
-            c.fillStyle = "orange"
-            c.rect(-100, -100, 200, 200)
-            c.fill()
+            // c.fillStyle = "orange"
+            // c.rect(-100, -100, 200, 200)
+            // c.fill()
+            c.drawImage(image, 0, 0)
             c.restore()
 
             c.beginPath()
