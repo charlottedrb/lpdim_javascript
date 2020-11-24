@@ -25,6 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
             c.rect(0, 0, w, 10)
             c.fillStyle = "lavender"
             c.fill()
+
+            //dessin algo 
+            
         } else {
             c.clearRect(0, 0, w, 10)
         }
