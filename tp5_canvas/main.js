@@ -17,6 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let image = document.createElement("img")
     image.src = "img.jpg"
 
+    let mouse = { x: 0, y: 0 }
+    canvas.addEventListener('mousemove', (event) => {
+        mouse.x = event.pageX
+        mouse.y = event.pageY
+    })
+
     let animate = (timestamp) => {
         if(!last){
             last = timestamp
@@ -28,10 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
             c.clearRect(0, 0, w, h)
 
             c.save()
-
             c.translate(w / 2, h / 2)
             c.rotate(angle)
             c.beginPath()
+            
+            c.arc(-w/2+mouse.x, -h/2+mouse.y, 100, 0, Math.PI*2)
+            c.clip()
+
             //drawImage(image, sx, sy, sLargeur, sHauteur, dx, dy, dLargeur, dHauteur)
             c.drawImage(image, 0, 0, image.width, image.height,
                         -w, -h, 2*w, 2*w*image.height/image.width)
