@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-image: url("../ac2.png");
+  background-position: center center;
+}
+
+body {
+  font-family: "Helvetica";
+}
+
+header {
+  text-align: center;
+  background-color: #ff8387;
+  padding: 20px;
+  color: #F9F7E6;
+  text-transform: uppercase;
+}
+
+form {
+  width: 500px;
+  margin: 50px auto;
+}
+
+form div {
+  margin: 30px 0px;
+  background-color: #34C2AD;
+  color: #F9F7E6;
+  border-radius: 10px;
+  padding: 20px;
+  vertical-align: middle;
+}
+
+form div:last-child {
+  background: none;
+  text-align: center;
+}
+
+form div label {
+  margin-right: 1rem;
+  position: relative;
+}
+
+form div input[type="text"] {
+  height: 1.5rem;
+  width: 70%;
+  border: none;
+  font-size: 14px;
+  padding: 0 4px;
+  background-color: #F9F7E6;
+}
+
+form div textarea {
+  height: 3rem;
+  width: 70%;
+  border: none;
+  font-size: 14px;
+  padding: 4px 4px;
+  resize: none;
+  font-family: "Helvetica";
+  vertical-align: top;
+  background-color: #F9F7E6;
+}
+
+form div input[type="submit"] {
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #F9F7E6;
+  color: #34C2AD;
+  -webkit-transition: 0.6s background ease;
+  transition: 0.6s background ease;
+}
+
+form div input[type="submit"]:hover {
+  background-color: #ff8387;
+  color: #F9F7E6;
+}
+
+form .hide {
+  display: none;
+}
+
+form .souitch {
+  display: inline-block;
+  position: relative;
+  width: 4rem;
+  height: 2rem;
+  padding: 0 !important;
+  background-color: #F9F7E6;
+  border-radius: 20px;
+  vertical-align: middle;
+  margin: 0 1rem;
+}
+
+form .souitch .ball {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  right: auto;
+  width: 24px;
+  height: 24px;
+  padding: 0 !important;
+  background-color: #FF8387;
+  border-radius: 50%;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+form .souitch .ball.clicked {
+  padding: 0;
+  left: 2.2rem;
+  right: 4px;
+}
+
+form .souitchLabel {
+  display: inline-block;
+  vertical-align: middle;
+  color: #F9F7E6;
+  padding: 0.5rem;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+}
+
+form select {
+  display: block;
+}
+
+form .selectAccess {
+  position: absolute;
+  top: -8px;
+  right: -20px;
+  min-width: 1rem;
+  min-height: 1rem;
+  padding: 0.5rem;
+  background-color: #FF8387;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+}
+
+form .selectAccess .valueElement {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  text-align: center;
+  background-color: #FF8387;
+  border-radius: 50%;
+  padding: 0.5rem;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+form .selectAccess.active .valueElement {
+  opacity: 1;
+  pointer-events: auto;
+}
