@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+}
+
+canvas {
+  position: fixed;
+  background: #c553ff;
+  background: -webkit-gradient(linear, left top, left bottom, from(#c553ff), to(#ff7692));
+  background: linear-gradient(180deg, #c553ff 0%, #ff7692 100%);
+  cursor: none;
+}
